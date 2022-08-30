@@ -1,3 +1,4 @@
+import 'package:exagram/feature/home/page/home_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Exagram',
       theme: exagramThemeLight(),
-      home: const MyHomePage(title: 'MRP | Exámenes'),
+      home: const MyHomePage(title: 'MRP | Capacitación tecnológica'),
     );
   }
 }
@@ -53,10 +54,23 @@ class _MyHomePageState extends State<MyHomePage> {
               .headline6
               ?.copyWith(color: Theme.of(context).primaryColor),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: IconButton(
+              color: Theme.of(context).backgroundColor,
+              onPressed: () {},
+              icon: const Icon(
+                Icons.person,
+                size: 30.0,
+              ),
+            ),
+          )
+        ],
         backgroundColor: Theme.of(context).canvasColor,
       ),
       body: [
-        const Center(child: Text('Home')),
+        const HomePage(),
         const Center(child: Text('History')),
         const Center(child: Text('Profile')),
       ][currentPageIndex],
@@ -70,16 +84,16 @@ class _MyHomePageState extends State<MyHomePage> {
         destinations: const [
           NavigationDestination(
               icon: Icon(Icons.home_outlined),
-              label: 'Home',
+              label: 'Inicio',
               selectedIcon: Icon(Icons.home)),
           NavigationDestination(
-            icon: Icon(Icons.history_toggle_off),
-            label: 'History',
+            icon: Icon(Icons.search),
+            label: 'Buscar',
             selectedIcon: Icon(Icons.history_sharp),
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
+            icon: Icon(Icons.history_sharp),
+            label: 'Historial',
             selectedIcon: Icon(Icons.person),
           )
         ],
