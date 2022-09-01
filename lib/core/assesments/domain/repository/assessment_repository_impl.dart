@@ -1,7 +1,7 @@
 import 'package:exagram/core/assesments/data/datasource/assessment_remote_datasource.dart';
 import 'package:exagram/core/assesments/data/repository/assesment_repository.dart';
 import 'package:exagram/core/assesments/domain/entities/featured_assessment_card_dto.dart';
-import 'package:exagram/feature/assessment_detail/page/assessment_detail_controller.dart';
+import 'package:exagram/feature/assessment_detail/assessment_detail_controller.dart';
 
 import '../entities/free_tier_assessment.dart';
 

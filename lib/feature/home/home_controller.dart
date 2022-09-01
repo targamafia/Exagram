@@ -4,8 +4,8 @@ import 'package:exagram/core/assesments/domain/repository/assessment_repository_
 import 'package:exagram/core/assesments/domain/usecase/get_free_tier_usecase.dart';
 import 'package:get/get.dart';
 
-import '../../../core/assesments/domain/entities/free_tier_assessment.dart';
-import '../../../core/assesments/domain/usecase/get_featured_assessments_usecase.dart';
+import '../../core/assesments/domain/entities/free_tier_assessment.dart';
+import '../../core/assesments/domain/usecase/get_featured_assessments_usecase.dart';
 
 class HomeController extends GetxController {
   final GetFreeTierUseCase getFreeTierUseCase = GetFreeTierUseCase(

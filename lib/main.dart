@@ -1,4 +1,4 @@
- import 'package:exagram/feature/home/page/home_page.dart';
+ import 'package:exagram/feature/home/home_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

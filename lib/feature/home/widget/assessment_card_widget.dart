@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../assessment_detail/page/assessment_detail_page.dart';
+import '../../assessment_detail/assessment_detail_page.dart';
 
 class AssessmentCard extends StatefulWidget {
   final String id;
@@ -62,8 +62,13 @@ class _AssessmentCard extends State<AssessmentCard> {
                 Text(widget.title,
                     style: Theme.of(context).textTheme.headline5?.copyWith(
                         fontWeight: FontWeight.bold, color: Colors.white)),
-                Text(widget.area,
-                style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.white, fontSize: 14.0),)
+                Text(
+                  widget.area,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline6
+                      ?.copyWith(color: Colors.white, fontSize: 14.0),
+                )
               ],
             ),
           ),
