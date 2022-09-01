@@ -4,7 +4,9 @@ ThemeData exagramThemeLight() {
   return ThemeData(
       primaryColor: AppColorLight.primary,
       errorColor: AppColorLight.error,
+      backgroundColor: AppColorLight.background,
       primarySwatch: AppColorLight.materialPrimary,
+      canvasColor: const Color.fromRGBO(242, 245, 249, 1),
       textTheme: const TextTheme(
         headline1: TextStyle(fontSize: 40.0),
         headline2: TextStyle(fontSize: 33.0),
@@ -22,11 +24,14 @@ ThemeData exagramThemeDark() {
 class AppColorLight extends Color {
   AppColorLight(super.value);
 
+
+  static const blue100 = Color(0xFF3EADCF);
+  static const blue200 = Color(0xFFABE9CD);
   static const primary = Color(0xFF4059AD);
   static const materialPrimary = MaterialColor(0xFF4059AD, {
     50: Color.fromRGBO(64, 89, 173, .1),
     100: Color.fromRGBO(64, 89, 173, .2),
-    200: Color.fromRGBO(64, 89, 173, .3),
+    200: Color.fromRGBO(64, 89, 173, .1),
     300: Color.fromRGBO(64, 89, 173, .4),
     400: Color.fromRGBO(64, 89, 173, .5),
     500: Color.fromRGBO(64, 89, 173, .6),
@@ -54,6 +59,4 @@ class AppColorLight extends Color {
   static const onSurfaceVariant = Color(0xFF45464F);
   static const outline = Color(0xFF767680);
 
-  static const blue100 = Color(0xFF3EADCF);
-  static const blue200 = Color(0xFFABE9CD);
 }
