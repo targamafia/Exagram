@@ -1,4 +1,4 @@
-import 'package:exagram/feature/assessment_detail/page/assessment_detail_controller.dart';
+import 'package:exagram/feature/assessment_detail/assessment_detail_controller.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

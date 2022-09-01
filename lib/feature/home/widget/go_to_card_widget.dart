@@ -1,5 +1,3 @@
-import 'package:exagram/feature/assessment_detail/page/assessment_detail_page.dart';
-import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 
 var WIDTH = 150.0 * 1.5;
@@ -35,7 +33,7 @@ class _GoToCardWidget extends State<GoToCardWidget> {
           const Icon(
             Icons.arrow_forward_rounded,
             color: Colors.white,
-          )
+          ),
         ],
       ),
     );
