@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../assessment_application/assessment_application_page.dart';
+
 class AssessmentDetailPage extends StatefulWidget {
   final String assessmentId;
 
@@ -93,7 +95,10 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
                       AppColorLight.primary
                     ])),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() =>
+                        const AssessmentApplicationPage(assessmentId: "id"));
+                  },
                   style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
                       shadowColor: Colors.transparent),

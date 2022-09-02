@@ -24,7 +24,6 @@ ThemeData exagramThemeDark() {
 class AppColorLight extends Color {
   AppColorLight(super.value);
 
-
   static const blue100 = Color(0xFF3EADCF);
   static const blue200 = Color(0xFFABE9CD);
   static const primary = Color(0xFF4059AD);
@@ -43,6 +42,7 @@ class AppColorLight extends Color {
 
   static const onPrimary = Color(0xFFFFFFFF);
   static const primaryContainer = Color(0xFFDCE1FF);
+  static const primaryContainerSmooth = Color(0xFFF1F3FF);
   static const onPrimaryContainer = Color(0xFF00163F);
 
   static const error = Color(0xFFBA1A1A);
@@ -59,4 +59,5 @@ class AppColorLight extends Color {
   static const onSurfaceVariant = Color(0xFF45464F);
   static const outline = Color(0xFF767680);
 
+  static const correctGreen = Color(0xFF81dc9b);
 }
