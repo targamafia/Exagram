@@ -1,6 +1,8 @@
+import 'package:exagram/core/assesments/data/dto/get_answer.dart';
 import 'package:exagram/feature/assessment_detail/assessment_detail_controller.dart';
 
 import '../dto/get_freetier_assessment_dto.dart';
+import '../dto/get_question_with_answers.dart';
 
 String LOREM =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non urna lorem. Curabitur facilisis dictum erat sit amet dapibus. Cras tristique, turpis vitae aliquet bibendum, tellus urna pharetra purus, eu viverra justo magna quis leo. Quisque lobortis odio vel quam condimentum, sed pharetra lacus condimentum. Fusce vestibulum malesuada iaculis. Mauris quis urna et massa iaculis tempus quis consectetur augue. Nunc tincidunt sem a justo suscipit, nec feugiat nulla pharetra. Suspendisse nec eros at libero tempus placerat ac at nunc. Maecenas faucibus eros quam, non feugiat velit pellentesque vel. Vivamus maximus sodales ipsum, lobortis maximus tellus molestie non. Donec sed lacus tincidunt ipsum tempus dignissim. Integer feugiat, felis a molestie convallis, dui mauris auctor mi, sed eleifend tortor nisl et mauris. Nulla ac quam consectetur, eleifend neque sed, consequat nunc. Aliquam in posuere orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed placerat augue.";
@@ -18,23 +20,10 @@ class AssessmentRemoteDataSource {
   AssessmentDetailDto getAssessmentDetailById(String id) {
     throw UnimplementedError();
   }
-}
 
-class AssessmentAPI implements AssessmentRemoteDataSource {
-  @override
-  List<GetFreeTierAssessmentDTO> getFreeTierAssessments() {
+  List<GetQuestionWithAnswers> getQuestionsWithAnswersByAssessmentId(String assessmentId) {
     throw UnimplementedError();
-  }
 
-  @override
-  List<GetFeatureAssessments> getFeaturedAssessments() {
-    // TODO: implement getFeaturedAssessments
-    throw UnimplementedError();
-  }
-
-  @override
-  AssessmentDetailDto getAssessmentDetailById(String id) {
-    throw UnimplementedError();
   }
 }
 
@@ -131,6 +120,47 @@ class AssessmentMockAPI implements AssessmentRemoteDataSource {
           description: LOREM,
           numOfQuestions: 22);
     }
+  }
+
+  @override
+  List<GetQuestionWithAnswers> getQuestionsWithAnswersByAssessmentId(String assessmentId) {
+   return [
+     GetQuestionWithAnswers(
+       id: "1",
+       text: "Una universidad construye una nueva residencia estudiantil en su campus. Los trabajadores cavan para instalar las nuevas tuberías de agua de la residencia. Uno de ellos accidentalmente daña el cable de fibra óptica que conecta dos de las residencias existentes al centro de datos del campus. A pesar de que se cortó el cable, los estudiantes de las residencias solo perciben una interrupción muy breve en los servicios de red. ¿Qué característica de la red se demuestra aquí?",
+       imgUrl: "",
+       answers: [
+         GetAnswer(id: '1', text: 'Integridad', isCorrect: false),
+         GetAnswer(id: '2', text: 'Calidad de Servicio', isCorrect: false),
+         GetAnswer(id: '3', text: 'Tolerancia a fallas', isCorrect: true),
+         GetAnswer(id: '4', text: 'Seguridad', isCorrect: false),
+         GetAnswer(id: '5', text: 'Escalabilidad', isCorrect: false),
+       ]
+     ),
+     GetQuestionWithAnswers(
+         id: "2",
+         text: "¿Cómo cambia BYOD la forma en que las empresas implementan las redes?",
+         imgUrl: "",
+         answers: [
+           GetAnswer(id: '6', text: 'BYOD brinda flexibilidad con respecto a cuándo y cómo los usuarios pueden acceder a los recursos de red.', isCorrect: true),
+           GetAnswer(id: '7', text: 'BYOD requiere que las organizaciones compren PC portátiles en lugar de computadoras de escritorio.', isCorrect: false),
+           GetAnswer(id: '8', text: 'Los usuarios BYOD son responsables de la seguridad de su red, por lo que se reduce la necesidad de políticas de seguridad dentro de la organización.', isCorrect: false),
+           GetAnswer(id: '9', text: 'Los dispositivos BYOD son más costosos que los dispositivos que compran las organizaciones.', isCorrect: false),
+          ]
+     ),
+     GetQuestionWithAnswers(
+         id: "3",
+         text: "Consulte la exhibición. ¿Qué término identifica correctamente el tipo de dispositivo que se incluye en el área B?",
+         imgUrl: "https://ccnadesdecero.es/wp-content/uploads/2017/11/Pregunta-6-Capitulo-1-CCNA-1.png",
+         answers: [
+           GetAnswer(id: '1', text: 'Transferencia', isCorrect: false),
+           GetAnswer(id: '2', text: 'Origen', isCorrect: false),
+           GetAnswer(id: '3', text: 'Tolerancia a fallas', isCorrect: false),
+           GetAnswer(id: '4', text: 'Final', isCorrect: false),
+           GetAnswer(id: '5', text: 'Intermediario', isCorrect: true),
+         ]
+     ),
+   ];
   }
 }
 
