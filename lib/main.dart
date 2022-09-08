@@ -1,4 +1,4 @@
- import 'package:exagram/feature/history/history_page.dart';
+import 'package:exagram/feature/history/history_page.dart';
 import 'package:exagram/feature/home/home_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
@@ -57,16 +57,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: IconButton(
-              color: Theme.of(context).backgroundColor,
-              onPressed: () {},
-              icon: const Icon(
-                Icons.person,
-                size: 30.0,
-              ),
-            ),
-          )
+              padding: const EdgeInsets.only(right: 20),
+              child: InkWell(
+                onTap: () {},
+                child: Image.network(
+                  'https://buffer.com/library/content/images/2020/05/Kevan-Lee.png',
+                  width: 40,
+                  height: 40,
+                ),
+              ))
         ],
         backgroundColor: Theme.of(context).canvasColor,
       ),
