@@ -3,8 +3,9 @@ import 'package:exagram/feature/assessment_application/widget/answer_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../styles.dart';
 import '../assessment_application_controller.dart';
+
+String LETTERS = "abcdefghijklmnopqrstuvwxyz";
 
 class QuestionCard extends StatefulWidget {
   final Question question;
@@ -17,7 +18,6 @@ class QuestionCard extends StatefulWidget {
 
 class _QuestionCard extends State<QuestionCard> {
   QuestionCardController controller = Get.put(QuestionCardController());
-  String letters = "abcdefghijklmnopqrstuvwxyz";
   int letterIndex = 0;
 
   @override
@@ -67,7 +67,7 @@ class _QuestionCard extends State<QuestionCard> {
   }
 
   nextLetter() {
-    var letter = letters[letterIndex % controller.answers.length];
+    var letter = LETTERS[letterIndex % controller.answers.length];
     ++letterIndex;
     return letter;
   }
