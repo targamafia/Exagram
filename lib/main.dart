@@ -1,4 +1,5 @@
- import 'package:exagram/feature/home/home_page.dart';
+ import 'package:exagram/feature/history/history_page.dart';
+import 'package:exagram/feature/home/home_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -72,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: [
         const HomePage(),
         const Center(child: Text('History')),
-        const Center(child: Text('Profile')),
+        const HistoryPage(),
       ][currentPageIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
@@ -89,12 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
           NavigationDestination(
             icon: Icon(Icons.search),
             label: 'Buscar',
-            selectedIcon: Icon(Icons.history_sharp),
+            selectedIcon: Icon(Icons.search_sharp),
           ),
           NavigationDestination(
             icon: Icon(Icons.history_sharp),
             label: 'Historial',
-            selectedIcon: Icon(Icons.person),
+            selectedIcon: Icon(Icons.history_sharp),
           )
         ],
         backgroundColor: Theme.of(context).canvasColor,

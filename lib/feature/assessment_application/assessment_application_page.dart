@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../styles.dart';
-import 'finish_assessment_page.dart';
+import '../finish_assessment/finish_assessment_page.dart';
 
 class AssessmentApplicationPage extends StatefulWidget {
   const AssessmentApplicationPage({Key? key, required this.assessmentId})

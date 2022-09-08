@@ -71,7 +71,7 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Descripción del curso',
+                  'Descripción',
                   style: Theme.of(context).textTheme.headline4?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Colors.black.withOpacity(.75)),
