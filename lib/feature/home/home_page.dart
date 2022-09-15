@@ -13,55 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeController controller = Get.put(HomeController());
     controller.refreshFeatureAssessmentsList();
-    List<Widget> featureAssessments = controller.featuredAssessments
-        .map(
-          (it) => Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: AssessmentCard(
-              id: it.id,
-              title: it.assessmentName,
-              area: it.area,
-              imgUrl: it.imgUrl,
-            ),
-          ),
-        )
-        .toList();
 
-    List<Widget> premiumAssessments = featureAssessments
-        .map(
-          (e) => Stack(children: [
-            e,
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                  ),
-                  Text(
-                    'PREMIUM',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        ?.copyWith(color: Colors.yellow, fontSize: 12.0),
-                  )
-                ],
-              ),
-            ),
-          ]),
-        )
-        .toList();
-
-    featureAssessments
-        .add(const Padding(padding: EdgeInsets.zero, child: GoToCardWidget()));
-
-    premiumAssessments.add(
-      Stack(children: const [
-        Padding(padding: EdgeInsets.zero, child: GoToCardWidget())
-      ]),
-    );
     controller.refreshFreeTierAssessmentList();
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -80,8 +32,22 @@ class HomePage extends StatelessWidget {
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
-              children: featureAssessments,
+            child: Obx(
+              () => Row(
+                children: controller.featuredAssessments
+                    .map(
+                      (it) => Padding(
+                        padding: const EdgeInsets.only(right: 15.0),
+                        child: AssessmentCard(
+                          id: it.id,
+                          title: it.assessmentName,
+                          area: it.area,
+                          imgUrl: it.imgUrl,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
           ),
           Padding(
@@ -92,12 +58,6 @@ class HomePage extends StatelessWidget {
                   .textTheme
                   .headline4
                   ?.copyWith(color: AppColorLight.primary),
-            ),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: premiumAssessments,
             ),
           ),
         ],

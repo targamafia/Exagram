@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Exagram',
       theme: exagramThemeLight(),
-      home: const MyHomePage(title: 'MRP | Capacitación tecnológica'),
+      home: MyHomePage(title: "MRP Capacitaciones"),
     );
   }
 }

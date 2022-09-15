@@ -11,17 +11,21 @@ class HomeController extends GetxController {
   final GetFreeTierUseCase getFreeTierUseCase = GetFreeTierUseCase(
       assessmentRepository: AssessmentRepositoryImpl(AssessmentMockAPI()));
 
-  final GetFeaturedAssessmentsUseCase getFeaturedAssessmentsUseCase = GetFeaturedAssessmentsUseCase(
-      assessmentRepository: AssessmentRepositoryImpl(AssessmentMockAPI()));
+  final GetFeaturedAssessmentsUseCase getFeaturedAssessmentsUseCase =
+      GetFeaturedAssessmentsUseCase(
+          assessmentRepository: AssessmentRepositoryImpl(AssessmentMockAPI()));
 
   List<FreeTierAssessment> freeTierAssessment = [];
-  List<FeatureAssessmentCardDto> featuredAssessments = [];
+  RxList<FeatureAssessmentCardDto> featuredAssessments =
+      <FeatureAssessmentCardDto>[].obs;
 
   void refreshFreeTierAssessmentList() {
     freeTierAssessment = getFreeTierUseCase.call();
   }
 
   void refreshFeatureAssessmentsList() {
-    featuredAssessments = getFeaturedAssessmentsUseCase.call();
+    getFeaturedAssessmentsUseCase
+        .call()
+        .then((value) => featuredAssessments.value = value);
   }
 }

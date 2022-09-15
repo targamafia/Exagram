@@ -23,12 +23,13 @@ class AssessmentRepositoryImpl implements AssessmentRepository {
   }
 
   @override
-  List<FeatureAssessmentCardDto> getFeaturedAssessments() {
-    return dataSource
-        .getFeaturedAssessments()
-        .map((e) => FeatureAssessmentCardDto(
-            id: e.id, assessmentName: e.name, imgUrl: e.imgUrl, area: e.area))
-        .toList();
+  Future<List<FeatureAssessmentCardDto>> getFeaturedAssessments() {
+    return dataSource.getFeaturedAssessments().then((it) => it
+        .map(
+          (a) => FeatureAssessmentCardDto(
+              id: a.id, assessmentName: a.name, imgUrl: a.imgUrl, area: a.area),
+        )
+        .toList());
   }
 
   @override
@@ -44,7 +45,8 @@ class AssessmentRepositoryImpl implements AssessmentRepository {
             text: e.text,
             imgUrl: e.imgUrl,
             answers: e.answers
-                .map((e2) => Answer(id: e2.id, text: e2.text, isCorrect: e2.isCorrect))
+                .map((e2) =>
+                    Answer(id: e2.id, text: e2.text, isCorrect: e2.isCorrect))
                 .toList()))
         .toList();
   }
