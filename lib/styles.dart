@@ -6,7 +6,7 @@ ThemeData exagramThemeLight() {
       errorColor: AppColorLight.error,
       backgroundColor: AppColorLight.background,
       primarySwatch: AppColorLight.materialPrimary,
-      canvasColor: const Color.fromRGBO(242, 245, 249, 1),
+      canvasColor: Colors.white,
       textTheme: const TextTheme(
         headline1: TextStyle(fontSize: 40.0),
         headline2: TextStyle(fontSize: 33.0),

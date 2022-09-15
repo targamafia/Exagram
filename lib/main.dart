@@ -1,8 +1,11 @@
 import 'package:exagram/feature/history/history_page.dart';
 import 'package:exagram/feature/home/home_page.dart';
+import 'package:exagram/feature/login/login_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'feature/onboarding/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Exagram',
       theme: exagramThemeLight(),
-      home: MyHomePage(title: "MRP Capacitaciones"),
+      home: OnBoarding(),
     );
   }
 }
@@ -48,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Text(
           widget.title,
           style: Theme.of(context)
