@@ -7,7 +7,9 @@ class GetFeaturedAssessmentsUseCase {
 
   GetFeaturedAssessmentsUseCase({required this.assessmentRepository});
 
-  List<FeatureAssessmentCardDto> call() {
-    return assessmentRepository.getFeaturedAssessments();
+  Future<List<FeatureAssessmentCardDto>> call() {
+    return Future.delayed(const Duration(seconds: 5), () {
+      return assessmentRepository.getFeaturedAssessments();
+    });
   }
 }

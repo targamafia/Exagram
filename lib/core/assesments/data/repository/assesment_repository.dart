@@ -9,7 +9,7 @@ class AssessmentRepository {
     throw UnimplementedError();
   }
 
-  List<FeatureAssessmentCardDto> getFeaturedAssessments() {
+  Future<List<FeatureAssessmentCardDto>> getFeaturedAssessments() {
     throw UnimplementedError();
   }
 
@@ -20,6 +20,4 @@ class AssessmentRepository {
   List<Question> getQuestionsByAssessmentId(String assessmentId) {
     throw UnimplementedError();
   }
-
 }
-
