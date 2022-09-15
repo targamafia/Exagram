@@ -9,11 +9,11 @@ class AssessmentRepository {
     throw UnimplementedError();
   }
 
-  Future<List<FeatureAssessmentCardDto>> getFeaturedAssessments() {
+  Future<List<FeatureAssessmentCardDto>> getFeaturedAssessments() async {
     throw UnimplementedError();
   }
 
-  AssessmentDetailDto getAssessmentDetail(String id) {
+  Future<AssessmentDetailDto> getAssessmentDetail(String id) async {
     throw UnimplementedError();
   }
 

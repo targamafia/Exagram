@@ -62,3 +62,7 @@ Image Licences:
 - Image by <a href="https://www.freepik.com/free-vector/isometric-cms-concept_11788713.htm#query=illustrations&position=6&from_view=keyword">Freepik</a>
 - <a href="https://www.freepik.com/free-vector/learning-concept-illustration_14230944.htm#query=illustrations%20learning&position=1&from_view=search">Image by storyset</a> on Freepik
 - <a href="https://www.freepik.com/free-vector/thesis-concept-illustration_19466808.htm#query=illustrations%20exams&position=2&from_view=search">Image by storyset</a> on Freepik
+
+### How to implement a functionality in the project.
+
+

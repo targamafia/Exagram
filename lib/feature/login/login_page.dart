@@ -1,15 +1,27 @@
+import 'package:exagram/core/exceptions/exceptions.dart';
+import 'package:exagram/core/user/domain/usecase/get_local_user_info_usecase.dart';
+import 'package:exagram/feature/login/login_controller.dart';
+import 'package:exagram/feature/sign_up/sign_up_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'dart:io' show Platform;
+import '../../core/user/data/dto/login_result.dart';
+import '../../main.dart';
+import '../../styles.dart';
+import 'package:flutter/cupertino.dart';
 
-import '../utils/button_full_width.dart';
+import '../utils/result.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+  TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    LoginController controller = Get.put(LoginController());
     return Scaffold(
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -42,23 +54,29 @@ class LoginPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
               child: TextField(
+                onChanged: (text) {
+                  controller.email(text);
+                },
                 autocorrect: false,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'email',
                   prefixIcon: Icon(Icons.mail),
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
               child: TextField(
+                onChanged: (text) {
+                  controller.password(text);
+                },
                 autocorrect: false,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
                   prefixIcon: Icon(Icons.lock),
@@ -73,17 +91,70 @@ class LoginPage extends StatelessWidget {
                 textAlign: TextAlign.end,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 24),
-              child: ButtonFullWidth(),
+            Padding(
+              padding: const EdgeInsets.only(top: 24),
+              child: Container(
+                height: 50.0,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.0),
+                    gradient: const LinearGradient(colors: [
+                      AppColorLight.onPrimaryContainer,
+                      AppColorLight.primary
+                    ])),
+                child: ElevatedButton(
+                  onPressed: ([bool mounted = true]) async {
+                    Result loginStatus = await controller.login();
+                    if (loginStatus.getOrNull() is LoginSuccess) {
+                      Get.offAll(
+                          () => const MyHomePage(title: 'MRP Capacitaciones'));
+                    } else if (loginStatus.exceptionOrNull()
+                        is LoginException) {
+                      // Removes warning for stateless components, check: https://stackoverflow.com/questions/68871880/do-not-use-buildcontexts-across-async-gaps
+                      if (!mounted) return;
+                      _showLoginErrorDialog(
+                          context,
+                          (loginStatus.exceptionOrNull() as LoginException)
+                              .message);
+                    }
+                  },
+                  child: const Text("Iniciar sesión"),
+                ),
+              ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16),
-              child: Text("Or Create Acount"),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: TextButton(
+                  onPressed: () {
+                    Get.to(() => SignUpPage());
+                  },
+                  child: const Text("O crea una cuenta")),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _showLoginErrorDialog(BuildContext context, String message) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Platform.isIOS
+              ? CupertinoAlertDialog(
+                  title: const Text("Error al iniciar sesion"),
+                  content: Text(message),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'OK'),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                )
+              : const AlertDialog(
+                  title: Text("Success"),
+                  content: Text("Saved successfully"),
+                );
+        });
   }
 }

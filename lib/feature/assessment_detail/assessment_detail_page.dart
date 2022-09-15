@@ -20,6 +20,7 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
   Widget build(BuildContext context) {
     AssessmentDetailController controller =
         Get.put(AssessmentDetailController());
+    print("AssessmentId: ${widget.assessmentId}");
     controller.refreshAssessmentDetailById(widget.assessmentId);
 
     return Scaffold(
@@ -44,12 +45,14 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                controller.assessmentDetail.title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black.withOpacity(.75)),
+              Obx(
+                () => Text(
+                  '${controller.title}',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline2?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black.withOpacity(.75)),
+                ),
               ),
               Text(
                 '${controller.assessmentDetail.numOfQuestions} preguntas',
@@ -58,14 +61,11 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
                     .headline6
                     ?.copyWith(color: Colors.black.withOpacity(.5)),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 32.0, bottom: 20.0),
-                child: FittedBox(
-                  clipBehavior: Clip.hardEdge,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50.0),
-                    child: Image.network(controller.assessmentDetail.imgUrl),
-                  ),
+              Container(
+                padding: const EdgeInsets.only(top: 32.0, bottom: 20.0),
+                child: Obx(
+                  () =>
+                      Image.network(controller.thumbnailUrl.value, width: 200),
                 ),
               ),
               Align(

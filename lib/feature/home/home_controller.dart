@@ -1,4 +1,4 @@
-import 'package:exagram/core/assesments/data/datasource/assessment_remote_datasource.dart';
+import 'package:exagram/core/assesments/data/datasource/assessment_api_datasource.dart';
 import 'package:exagram/core/assesments/domain/entities/featured_assessment_card_dto.dart';
 import 'package:exagram/core/assesments/domain/repository/assessment_repository_impl.dart';
 import 'package:exagram/core/assesments/domain/usecase/get_free_tier_usecase.dart';
@@ -9,11 +9,11 @@ import '../../core/assesments/domain/usecase/get_featured_assessments_usecase.da
 
 class HomeController extends GetxController {
   final GetFreeTierUseCase getFreeTierUseCase = GetFreeTierUseCase(
-      assessmentRepository: AssessmentRepositoryImpl(AssessmentMockAPI()));
+      assessmentRepository: AssessmentRepositoryImpl(AssessmentApiDataSource()));
 
   final GetFeaturedAssessmentsUseCase getFeaturedAssessmentsUseCase =
       GetFeaturedAssessmentsUseCase(
-          assessmentRepository: AssessmentRepositoryImpl(AssessmentMockAPI()));
+          assessmentRepository: AssessmentRepositoryImpl(AssessmentApiDataSource()));
 
   List<FreeTierAssessment> freeTierAssessment = [];
   RxList<FeatureAssessmentCardDto> featuredAssessments =

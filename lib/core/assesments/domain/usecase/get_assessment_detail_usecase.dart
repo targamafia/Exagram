@@ -6,7 +6,7 @@ class GetAssessmentDetailUseCase {
 
   GetAssessmentDetailUseCase(this.assessmentRepository);
 
-  AssessmentDetailDto call(String id) {
+  Future<AssessmentDetailDto> call(String id) {
     return assessmentRepository.getAssessmentDetail(id);
   }
 }

@@ -33,7 +33,7 @@ class OnBoarding extends StatelessWidget {
   here we need to pass the list and the route for the next page to be opened after this. */
     return IntroPage(
       onBoardingDataList: list,
-      pageRoute: MaterialPageRoute(builder: (context) => const LoginPage()),
+      pageRoute: MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:exagram/core/assesments/data/datasource/assessment_remote_datasource.dart';
 import 'package:exagram/core/assesments/data/repository/assesment_repository.dart';
 import 'package:exagram/core/assesments/domain/entities/featured_assessment_card_dto.dart';
@@ -13,41 +15,38 @@ class AssessmentRepositoryImpl implements AssessmentRepository {
 
   @override
   List<FreeTierAssessment> getFreeTierAssessments() {
-    return dataSource
-        .getFreeTierAssessments()
-        .map((e) => FreeTierAssessment(
-            id: e.id ?? "",
-            title: e.title ?? "",
-            numberOfQuestions: e.numberOfQuestions ?? 0))
-        .toList();
+    return [];
   }
 
   @override
-  Future<List<FeatureAssessmentCardDto>> getFeaturedAssessments() {
-    return dataSource.getFeaturedAssessments().then((it) => it
-        .map(
-          (a) => FeatureAssessmentCardDto(
-              id: a.id, assessmentName: a.name, imgUrl: a.imgUrl, area: a.area),
-        )
-        .toList());
+  Future<List<FeatureAssessmentCardDto>> getFeaturedAssessments() async {
+    var response = await dataSource.getFeaturedAssessments();
+    var responseBody = jsonDecode(utf8.decode(response.bodyBytes)) as Map;
+    return responseBody['entity']['list'].map<FeatureAssessmentCardDto>((it) {
+      return FeatureAssessmentCardDto(
+          id: it['id'] ?? '',
+          assessmentName: it['title'] ?? '',
+          area: 'IT',
+          imgUrl: it['thumbnailUrl'] ?? 'http://placeimg.com/640/480');
+    }).toList();
   }
 
   @override
-  AssessmentDetailDto getAssessmentDetail(String id) {
-    return dataSource.getAssessmentDetailById(id);
+  Future<AssessmentDetailDto> getAssessmentDetail(String id) async {
+    var response = await dataSource.getAssessmentDetailById(id);
+    var responseBody = jsonDecode(utf8.decode(response.bodyBytes)) as Map;
+    var entity = responseBody['entity'];
+    return AssessmentDetailDto(
+        id: entity['_id'] ?? ':ccc',
+        area: 'IT',
+        title: entity['title'] ?? ':ccc',
+        imgUrl: entity['thumbnailUrl'] ?? 'http://placeimg.com/640/480',
+        description: entity['description'] ?? ':ccc',
+        numOfQuestions: 10);
   }
 
   @override
   List<Question> getQuestionsByAssessmentId(String assessmentId) {
-    return dataSource
-        .getQuestionsWithAnswersByAssessmentId(assessmentId)
-        .map((e) => Question(
-            text: e.text,
-            imgUrl: e.imgUrl,
-            answers: e.answers
-                .map((e2) =>
-                    Answer(id: e2.id, text: e2.text, isCorrect: e2.isCorrect))
-                .toList()))
-        .toList();
+    return [];
   }
 }
