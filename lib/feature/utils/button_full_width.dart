@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../main.dart';
 import '../../styles.dart';
+import 'package:http/http.dart' as http;
 
 class ButtonFullWidth extends StatelessWidget {
   const ButtonFullWidth({Key? key}) : super(key: key);
