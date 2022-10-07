@@ -10,6 +10,37 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     ProfileController controller = Get.put(ProfileController());
     return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Center(
+            child: Text(
+              'MRP Capcitaciones',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  ?.copyWith(color: Theme.of(context).primaryColor),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          actions: [
+            Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child:  InkWell(
+                    onTap: () => (
+                        Get.to(()=> ProfilePage())
+                    ),
+                    child: Icon(Icons.account_circle_outlined, color: Colors.black)
+                )
+            )
+          ],
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: (){ Get.back(); },
+            color: Colors.black,
+          ),
+          backgroundColor: Theme.of(context).canvasColor,
+        ),
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -33,7 +64,7 @@ class ProfilePage extends StatelessWidget {
                 padding: const EdgeInsets.only(top:16.0, bottom: 8.0),
                 child: Text(
                   //controller.profile.username  Ahorita solo lo hare estático
-                  'Username',
+                  'Fredy Herzog',
                   style: Theme.of(context).textTheme.headline3,
                   textAlign: TextAlign.center,
                 ),
@@ -42,7 +73,7 @@ class ProfilePage extends StatelessWidget {
                 padding: const EdgeInsets.all(1.0),
                 child: Text(
                   //controller.profile. info de cuando creo la cuenta
-                  'Cuenta activa desde el: XX de XXXXX del XXXX',
+                  'Cuenta activa desde el: 23 de Septiembre de 2022',
                   style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.center,
                 ),
@@ -112,10 +143,6 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(padding: const EdgeInsets.only(top:32.0, bottom:16.0, left:16.0),
-              child: Text('Cursos tomados con MRP', style: Theme.of(context).textTheme.headline3, textAlign: TextAlign.start)
-              ),
-              Table()
             ],
           ),
         )

@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Exagram',
+      title: 'MRP Capacitaciones',
       theme: exagramThemeLight(),
       home: OnBoarding(),
     );
@@ -53,12 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: Text(
-          widget.title,
-          style: Theme.of(context)
-              .textTheme
-              .headline6
-              ?.copyWith(color: Theme.of(context).primaryColor),
+        title: Center(
+          child:Text(
+            widget.title,
+            style: Theme.of(context)
+                .textTheme
+                .headline6
+                ?.copyWith(color: Theme.of(context).primaryColor),
+            textAlign: TextAlign.center,
+          ),
         ),
         actions: [
           Padding(
