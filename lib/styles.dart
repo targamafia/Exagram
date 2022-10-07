@@ -49,6 +49,7 @@ class AppColorLight extends Color {
   static const onError = Color(0xFFFFFFFF);
   static const errorContainer = Color(0xFFFFDAD6);
   static const onErrorContainer = Color(0xFF410002);
+  static const error50 = Color(0xDE3730);
 
   static const background = Color(0xFFFEFBFF);
   static const onBackground = Color(0xFF1B1B1F);
@@ -60,4 +61,8 @@ class AppColorLight extends Color {
   static const outline = Color(0xFF767680);
 
   static const correctGreen = Color(0xFF81dc9b);
+
+  static const neutral10 = Color(0x1B1B1F);
+
+  static const successGreen = Color(0x378857);
 }

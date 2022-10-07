@@ -1,6 +1,7 @@
 import 'package:exagram/feature/history/history_page.dart';
 import 'package:exagram/feature/home/home_page.dart';
 import 'package:exagram/feature/login/login_page.dart';
+import 'package:exagram/feature/profile/profile_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -62,14 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: InkWell(
-                onTap: () {},
-                child: Image.network(
-                  'https://buffer.com/library/content/images/2020/05/Kevan-Lee.png',
-                  width: 40,
-                  height: 40,
-                ),
-              ))
+              child:  InkWell(
+                  onTap: () => (
+                    Get.to(()=> ProfilePage())
+                  ),
+                child: Icon(Icons.account_circle_outlined, color: Colors.black)
+              )
+          )
         ],
         backgroundColor: Theme.of(context).canvasColor,
       ),
