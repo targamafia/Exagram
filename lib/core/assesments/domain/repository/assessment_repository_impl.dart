@@ -27,7 +27,8 @@ class AssessmentRepositoryImpl implements AssessmentRepository {
           id: it['id'] ?? '',
           assessmentName: it['title'] ?? '',
           area: 'IT',
-          imgUrl: it['thumbnailUrl'] ?? 'http://placeimg.com/640/480');
+          // imgUrl: it['thumbnailUrl'] ?? 'http://placeimg.com/640/480/arch');
+          imgUrl: 'http://placeimg.com/640/480/arch');
     }).toList();
   }
 

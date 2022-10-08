@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Center(
             child: Text(
-              'MRP Capcitaciones',
+              'MRP Capacitaciones',
               style: Theme.of(context)
                   .textTheme
                   .headline6
