@@ -63,9 +63,9 @@ class ProfilePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top:16.0, bottom: 8.0),
                 child: Text(
-                  //controller.profile.username  Ahorita solo lo hare estático
+                  //controller.profile.username  Ahorita solo lo haré estático
                   'Fredy Herzog',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.headline3?.copyWith(color: AppColorLight.neutral10),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -74,7 +74,7 @@ class ProfilePage extends StatelessWidget {
                 child: Text(
                   //controller.profile. info de cuando creo la cuenta
                   'Cuenta activa desde el: 23 de Septiembre de 2022',
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(color: AppColorLight.neutral10),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -82,7 +82,7 @@ class ProfilePage extends StatelessWidget {
                 padding: const EdgeInsets.only(top:32.0, bottom:16.0, left:16.0),
                 child: Text(
                   'Últimos 5 exámenes',
-                  style: Theme.of(context).textTheme.headline2,
+                  style: Theme.of(context).textTheme.headline2?.copyWith(color: AppColorLight.neutral10),
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -105,7 +105,10 @@ class ProfilePage extends StatelessWidget {
                           children:[
                             Padding(padding: const EdgeInsets.only(left: 4.0, top: 6.0, bottom: 6.0),
                                 child: Text('Examen', style: Theme.of(context).textTheme.subtitle1))]),
-                      Column(children:[Text('75/100', style: Theme.of(context).textTheme.subtitle1)]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children:[Padding(padding: const EdgeInsets.all(4.0),
+                              child: Text('75/100', style: Theme.of(context).textTheme.subtitle1?.copyWith(color: AppColorLight.successGreen)))]),
                       Column(children:[Icon(Icons.replay, color: Colors.black,)]),
                     ]),
                     TableRow( children: [
@@ -113,7 +116,10 @@ class ProfilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:[Padding(padding: const EdgeInsets.only(left: 4.0, top: 6.0, bottom: 6.0),
                               child: Text('Examen', style: Theme.of(context).textTheme.subtitle1))]),
-                      Column(children:[Text('100/100', style: Theme.of(context).textTheme.subtitle1)]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children:[Padding(padding: const EdgeInsets.all(4.0),
+                              child: Text('100/100', style: Theme.of(context).textTheme.subtitle1?.copyWith(color: AppColorLight.successGreen)))]),
                       Column(children:[Icon(Icons.replay, color: Colors.black,)]),
                     ]),
                     TableRow( children: [
@@ -121,7 +127,10 @@ class ProfilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:[Padding(padding: const EdgeInsets.only(left: 4.0, top: 6.0, bottom: 6.0),
                               child: Text('Examen', style: Theme.of(context).textTheme.subtitle1))]),
-                      Column(children:[Text('40/100',  style: Theme.of(context).textTheme.subtitle1)]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children:[Padding(padding: const EdgeInsets.all(4.0),
+                              child: Text('40/100', style: Theme.of(context).textTheme.subtitle1?.copyWith(color: AppColorLight.error50)))]),
                       Column(children:[Icon(Icons.replay, color: Colors.black,)]),
                     ]),
                     TableRow( children: [
@@ -129,7 +138,10 @@ class ProfilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:[Padding(padding: const EdgeInsets.only(left: 4.0, top: 6.0, bottom: 6.0),
                               child: Text('Examen', style: Theme.of(context).textTheme.subtitle1))]),
-                      Column(children:[Text('100/100', style: Theme.of(context).textTheme.subtitle1)]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children:[Padding(padding: const EdgeInsets.all(4.0),
+                              child: Text('100/100', style: Theme.of(context).textTheme.subtitle1?.copyWith(color: AppColorLight.successGreen)))]),
                       Column(children:[Icon(Icons.replay, color: Colors.black,)]),
                     ]),
                     TableRow( children: [
@@ -137,7 +149,10 @@ class ProfilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:[Padding(padding: const EdgeInsets.only(left: 4.0, top: 6.0, bottom: 6.0),
                               child: Text('Examen', style: Theme.of(context).textTheme.subtitle1))]),
-                      Column(children:[Text('40/100', style: Theme.of(context).textTheme.subtitle1)]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children:[Padding(padding: const EdgeInsets.all(4.0),
+                              child: Text('40/100', style: Theme.of(context).textTheme.subtitle1?.copyWith(color: AppColorLight.error50)))]),
                       Column(children:[Icon(Icons.replay, color: Colors.black,)]),
                     ]),
                   ],
