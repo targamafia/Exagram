@@ -31,7 +31,7 @@ class NoHistoricData extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
             child: Text(
-              'No Hay exámenes completados',
+              'No hay exámenes completados',
               style: Theme.of(context).textTheme.headline4,
               textAlign: TextAlign.center,
             ),

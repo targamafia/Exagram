@@ -1,6 +1,7 @@
 import 'package:exagram/feature/history/history_page.dart';
 import 'package:exagram/feature/home/home_page.dart';
 import 'package:exagram/feature/login/login_page.dart';
+import 'package:exagram/feature/profile/profile_page.dart';
 import 'package:exagram/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Exagram',
+      title: 'MRP Capacitaciones',
       theme: exagramThemeLight(),
       home: OnBoarding(),
     );
@@ -52,24 +53,26 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: Text(
-          widget.title,
-          style: Theme.of(context)
-              .textTheme
-              .headline6
-              ?.copyWith(color: Theme.of(context).primaryColor),
+        title: Center(
+          child:Text(
+            widget.title,
+            style: Theme.of(context)
+                .textTheme
+                .headline6
+                ?.copyWith(color: Theme.of(context).primaryColor),
+            textAlign: TextAlign.center,
+          ),
         ),
         actions: [
           Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: InkWell(
-                onTap: () {},
-                child: Image.network(
-                  'https://buffer.com/library/content/images/2020/05/Kevan-Lee.png',
-                  width: 40,
-                  height: 40,
-                ),
-              ))
+              child:  InkWell(
+                  onTap: () => (
+                    Get.to(()=> ProfilePage())
+                  ),
+                child: Icon(Icons.account_circle_outlined, color: Colors.black)
+              )
+          )
         ],
         backgroundColor: Theme.of(context).canvasColor,
       ),

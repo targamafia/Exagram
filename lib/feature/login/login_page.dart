@@ -151,10 +151,19 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 )
-              : const AlertDialog(
-                  title: Text("Success"),
-                  content: Text("Saved successfully"),
+              :  AlertDialog(
+                  title: Text("Error"),
+                  content: Text("Usuario o contraseña incorrectos"),
+                  actions: [
+                    TextButton(
+                      child: Text("OK"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
+                  ],
                 );
-        });
+      }
+    );
   }
 }

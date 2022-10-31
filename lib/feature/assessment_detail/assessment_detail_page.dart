@@ -29,7 +29,7 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
         iconTheme:
             Theme.of(context).iconTheme.copyWith(color: AppColorLight.primary),
         title: Text(
-          controller.assessmentDetail.area,
+          'MRP Capacitaciones',
           style: Theme.of(context)
               .textTheme
               .headline6
@@ -40,7 +40,7 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,23 +49,22 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
                 () => Text(
                   '${controller.title}',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline2?.copyWith(
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(.75)),
+                      color: AppColorLight.neutral10),
                 ),
               ),
-              Text(
-                '${controller.assessmentDetail.numOfQuestions} preguntas',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    ?.copyWith(color: Colors.black.withOpacity(.5)),
+              Padding(padding: const EdgeInsets.only(top: 16.0),
+                  child:Text('${controller.assessmentDetail.numOfQuestions} preguntas',
+                    style: Theme.of(context).textTheme.headline6?.copyWith(color: AppColorLight.neutral30),
+                )
               ),
+
               Container(
-                padding: const EdgeInsets.only(top: 32.0, bottom: 20.0),
+                padding: const EdgeInsets.only(top: 32.0, bottom: 32.0),
                 child: Obx(
                   () =>
-                      Image.network(controller.thumbnailUrl.value, width: 200),
+                      Image.network(controller.thumbnailUrl.value, width: 328),
                 ),
               ),
               Align(
@@ -74,26 +73,24 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
                   'Descripción',
                   style: Theme.of(context).textTheme.headline4?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Colors.black.withOpacity(.75)),
+                      color: AppColorLight.neutral10),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 12.0, bottom: 30.0),
-                child: Text(
-                  controller.assessmentDetail.description,
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                      color: Colors.black.withOpacity(.65), fontSize: 16.0),
+                padding: const EdgeInsets.only(top: 12.0, bottom: 32.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    controller.assessmentDetail.description,
+                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                        color: AppColorLight.neutral30, fontSize: 16.0),
+                  ),
                 ),
               ),
               Container(
-                height: 50.0,
-                width: double.infinity,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40.0),
-                    gradient: const LinearGradient(colors: [
-                      AppColorLight.onPrimaryContainer,
-                      AppColorLight.primary
-                    ])),
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: AppColorLight.blu),
                 child: ElevatedButton(
                   onPressed: () {
                     Get.to(() =>
@@ -102,7 +99,9 @@ class _AssessmentDetailPage extends State<AssessmentDetailPage> {
                   style: ElevatedButton.styleFrom(
                       primary: Colors.transparent,
                       shadowColor: Colors.transparent),
-                  child: const Text('Iniciar Examen'),
+                  child: const Text('Empezar',
+                  style: TextStyle(fontSize: 14.0),),
+
                 ),
               )
             ],
